@@ -34,6 +34,7 @@ namespace teste_batalha_naval
                 {
                     if (this._submarine._positions[i, 1] == col)
                     {
+                        TakeLife();
                         return true;
                     }
                 }
@@ -45,6 +46,7 @@ namespace teste_batalha_naval
                 {
                     if (this._destroyer._positions[i, 1] == col)
                     {
+                        TakeLife();
                         return true;
                     }
                 }
@@ -56,6 +58,7 @@ namespace teste_batalha_naval
                 {
                     if (this._aircraftCarrier._positions[i, 1] == col)
                     {
+                        TakeLife();
                         return true;
                     }
                 }
