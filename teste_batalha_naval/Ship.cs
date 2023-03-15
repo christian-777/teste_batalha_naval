@@ -14,7 +14,6 @@ namespace teste_batalha_naval
         private void TakeLife()
         {
             this._life--;
-
         }
     }
 }
