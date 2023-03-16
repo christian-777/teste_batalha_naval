@@ -68,10 +68,5 @@ namespace teste_batalha_naval
                 }
             }*/
         }
-
-        public void InsertShip(int row, int col)
-        {
-            this._board.InsertBoard(row, col);
-        }
     }
 }

@@ -8,6 +8,11 @@ namespace teste_batalha_naval
 {
     internal class Board
     {
+        //0 == vazio/agua
+        //1 == acertou na agua
+        //2 == acertou no navio
+        //3 == navio
+
         public int[,] _board { get; set; } = new int[20, 20];
 
         public int VerifyPosition(int row, int column, Ship ship, string orientation)
@@ -410,9 +415,9 @@ namespace teste_batalha_naval
             return 0;
         }
 
-        public void InsertBoard(int row, int col)
+        /*public void InsertBoard(int row, int col)
         {
             this._board[row, col] = 3;
-        }
+        }*/
     }
 }
