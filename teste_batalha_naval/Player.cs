@@ -12,6 +12,7 @@ namespace teste_batalha_naval
         Submarine _submarine;
         Destroyer _destroyer;
         AircraftCarrier _aircraftCarrier;
+        Board _board;
 
         public Player()
         {
@@ -19,6 +20,7 @@ namespace teste_batalha_naval
             this._submarine = new Submarine();
             this._destroyer = new Destroyer();
             this._aircraftCarrier = new AircraftCarrier();
+            this._board = new Board();
         }
 
         public void TakeLife()
@@ -26,9 +28,11 @@ namespace teste_batalha_naval
             this._life--;
         }
 
-        public bool Shot(int row, int col)
+        public int Shot(int row, int col)
         {
-            for(int i = 0; i < this._submarine._positions.GetLength(0); i++)
+            return this._board.VerifyShot(row, col);
+
+            /*for(int i = 0; i < this._submarine._positions.GetLength(0); i++)
             {
                 if (this._submarine._positions[i, 0] == row)
                 {
@@ -62,8 +66,12 @@ namespace teste_batalha_naval
                         return true;
                     }
                 }
-            }
-            return false;
+            }*/
+        }
+
+        public void InsertShip(int row, int col)
+        {
+            this._board.InsertBoard(row, col);
         }
     }
 }
