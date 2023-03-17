@@ -9,10 +9,11 @@ namespace teste_batalha_naval
     internal class Player
     {
         public int _life { get; set; }
-        Submarine _submarine;
-        Destroyer _destroyer;
-        AircraftCarrier _aircraftCarrier;
-        Board _board;
+        public Submarine _submarine { get; set; }
+        public Destroyer _destroyer { get; set; }
+        public AircraftCarrier _aircraftCarrier{ get; set; }
+        public Board _board { get; set; }
+        public string Name { get; set; }
 
         public Player()
         {
@@ -67,6 +68,35 @@ namespace teste_batalha_naval
                     }
                 }
             }*/
+        }
+
+        public int InsertShip(int[] positions, Ship ship, int orientation)
+        {
+            int row = positions[0];
+            int col = positions[1];
+            string aux;
+
+            if(orientation == 1)
+            {
+                aux = "horizontal";
+            }
+            else
+            {
+                aux = "vertical";
+            }
+
+            int operation = _board.VerifyPosition(row, col, ship, aux);
+
+            if (operation != 0)
+            {
+                _board.InsertBoard(row, col, operation, aux);
+                //funcao
+            }
+            else
+            {
+                Console.WriteLine("Nao pode ocupar esta posicao");
+            }
+            return operation;
         }
     }
 }

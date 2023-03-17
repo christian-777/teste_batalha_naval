@@ -415,9 +415,9 @@ namespace teste_batalha_naval
             return 0;
         }
 
-        /*public void InsertBoard(int row, int col)
+        public void InsertBoard(int row, int col, int type, string orientacao)
         {
             this._board[row, col] = 3;
-        }*/
+        }
     }
 }

@@ -8,11 +8,118 @@ internal class Program
         Player player2 = new Player();
 
         Console.WriteLine("Nome do jogador 1: ");
-        string name1=Console.ReadLine();
+        player1.Name=Console.ReadLine();
         Console.WriteLine("Nome do jogador 2: ");
-        string name2 = Console.ReadLine();
+        player2.Name = Console.ReadLine();
 
-        
+        InsertSubmarine(player1, player2);
+        InsertDestroyer(player1, player2);
+        InsertCarrier(player1, player2);
+
+        InsertSubmarine(player2, player1);
+        InsertDestroyer(player2, player1);
+        InsertCarrier(player2, player1);
+
+
+
+        void InsertSubmarine(Player p1, Player p2)
+        {
+            int[] VetPositions=new int[2];
+            int orientation;
+            bool aux=false;
+            do
+            {
+                Console.WriteLine(p1.Name+" voce esta colocando o submarino no tabuleiro: ");
+                VetPositions = PositionVerification();
+
+                do
+                {
+                    Console.WriteLine("Escolha a orientacao:\n[1]- Horizontal\n[2]- Vertical\n: ");
+                    if (int.TryParse(Console.ReadLine(), out orientation))
+                    {
+                        if (orientation == 1 || orientation == 2)
+                        {
+                            aux = true;
+                        }
+                        else
+                        {
+                            aux = false;
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Digite uma orientacao valida");
+                    }
+                } while (aux != true);
+            } while (p2.InsertShip(VetPositions, p2._submarine, orientation) == 0);
+           
+        }
+
+        void InsertDestroyer(Player p1, Player p2)
+        {
+            int[] VetPositions = new int[2];
+            int orientation;
+            bool aux = false;
+            do
+            {
+                Console.WriteLine(p1.Name + " voce esta colocando o Destroyer no tabuleiro: ");
+                VetPositions = PositionVerification();
+
+                do
+                {
+                    Console.WriteLine("Escolha a orientacao:\n[1]- Horizontal\n[2]- Vertical\n: ");
+                    if (int.TryParse(Console.ReadLine(), out orientation))
+                    {
+                        if (orientation == 1 || orientation == 2)
+                        {
+                            aux = true;
+                        }
+                        else
+                        {
+                            aux = false;
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Digite uma orientacao valida");
+                    }
+                } while (aux == false);
+            } while (p2.coloca(VetPositions, p2._destroyer, orientation) == 0);
+
+        }
+
+        void InsertCarrier(Player p1, Player p2)
+        {
+            int[] VetPositions = new int[2];
+            int orientation;
+            bool aux = false;
+            do
+            {
+                Console.WriteLine(p1.Name + " voce esta colocando o Porta Avioes no tabuleiro: ");
+                VetPositions = PositionVerification();
+
+                do
+                {
+                    Console.WriteLine("Escolha a orientacao:\n[1]- Horizontal\n[2]- Vertical\n: ");
+                    if (int.TryParse(Console.ReadLine(), out orientation))
+                    {
+                        if (orientation == 1 || orientation == 2)
+                        {
+                            aux = true;
+                        }
+                        else
+                        {
+                            aux = false;
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Digite uma orientacao valida");
+                    }
+                } while (aux == false);
+            } while (p2.coloca(VetPositions, p2._aircraftCarrier, orientation) == 0);
+
+        }
 
         int[] PositionVerification()
         {
