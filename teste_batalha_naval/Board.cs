@@ -19,8 +19,8 @@ namespace teste_batalha_naval
         {
             if (orientation == "horizontal")
             {
-                int aux= VerifyRowToRight(row, column, ship, orientation);
-                if(aux != 0)
+                int aux = VerifyRowToRight(row, column, ship, orientation);
+                if (aux != 0)
                 {
                     return aux;
                 }
@@ -135,7 +135,7 @@ namespace teste_batalha_naval
             return 0;
         }
 
-        public int VerifyRowToLeft( int row, int column, Ship ship, string orientation)
+        public int VerifyRowToLeft(int row, int column, Ship ship, string orientation)
         {
             if (orientation == "horizontal")
             {
@@ -408,16 +408,54 @@ namespace teste_batalha_naval
             {
                 return 1;
             }
-            else if(this._board[row, col] == 3)
+            else if (this._board[row, col] == 3)
             {
                 return 2;
             }
             return 0;
         }
 
-        public void InsertBoard(int row, int col, int type, string orientacao)
+        public void InsertBoard(int row, int column, Ship ship, string orientation, int direction)
         {
-            this._board[row, col] = 3;
+
+            if (orientation == "horizontal")
+            {
+                if (direction == 1)
+                {
+                    for (int i = 0; i < ship._life; i++)
+                    {
+                        this._board[row, column] = 3;
+                        column++;
+                    }
+                }
+                else
+                {
+                    for (int i = 0; i < ship._life; i++)
+                    {
+                        this._board[row, column] = 3;
+                        column--;
+                    }
+                }
+            }
+            else
+            {
+                if (direction == 1)
+                {
+                    for (int i = 0; i < ship._life; i++)
+                    {
+                        this._board[row, column] = 3;
+                        row++;
+                    }
+                }
+                else
+                {
+                    for (int i = 0; i < ship._life; i++)
+                    {
+                        this._board[row, column] = 3;
+                        row--;
+                    }
+                }
+            }
         }
     }
 }

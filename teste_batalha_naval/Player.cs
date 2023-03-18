@@ -89,8 +89,8 @@ namespace teste_batalha_naval
 
             if (operation != 0)
             {
-                _board.InsertBoard(row, col, operation, aux);
-                //funcao
+                this._board.InsertBoard(row, col, ship, aux, operation);
+                InsertPositionOnShipBoard(row, col, ship, aux, operation);
             }
             else
             {
@@ -98,5 +98,154 @@ namespace teste_batalha_naval
             }
             return operation;
         }
+
+        public void InsertPositionOnShipBoard(int row, int column, Ship ship, string orientation, int direction)
+        {
+            if (ship._name == "AircraftCarrier")
+            {
+                if (ship._name == "horizontal" && direction == 1)
+                {
+                    for (int i = 0; i < this._aircraftCarrier._positions.GetLength(0); i++)
+                    {
+                        int j = 0;
+                        this._aircraftCarrier._positions[i, j] = row;
+                        j++;
+                        this._aircraftCarrier._positions[i, j] = column;
+                        column++;
+                    }
+
+                }
+                else if (orientation == "horizontal" && direction == 2)
+                {
+                    for (int i = 0; i < this._aircraftCarrier._positions.GetLength(0); i++)
+                    {
+                        int j = 0;
+                        this._aircraftCarrier._positions[i, j] = row;
+                        j++;
+                        this._aircraftCarrier._positions[i, j] = column;
+                        column--;
+                    }
+                }
+                else if (orientation == "vertical" && direction == 1)
+                {
+                    for (int i = 0; i < this._aircraftCarrier._positions.GetLength(0); i++)
+                    {
+                        int j = 0;
+                        this._aircraftCarrier._positions[i, j] = row;
+                        j++;
+                        this._aircraftCarrier._positions[i, j] = column;
+                        row++;
+                    }
+                }
+                else if (orientation == "vertical" && direction == 2)
+                {
+                    for (int i = 0; i < this._aircraftCarrier._positions.GetLength(0); i++)
+                    {
+                        int j = 0;
+                        this._aircraftCarrier._positions[i, j] = row;
+                        j++;
+                        this._aircraftCarrier._positions[i, j] = column;
+                        row--;
+                    }
+                }
+            }
+            else if (ship._name == "Destroyer")
+            {
+                if (orientation == "horizontal" && direction == 1)
+                {
+                    for (int i = 0; i < this._destroyer._positions.GetLength(0); i++)
+                    {
+                        int j = 0;
+                        this._destroyer._positions[i, j] = row;
+                        j++;
+                        this._destroyer._positions[i, j] = column;
+                        column++;
+                    }
+
+                }
+                else if (orientation == "horizontal" && direction == 2)
+                {
+                    for (int i = 0; i < this._destroyer._positions.GetLength(0); i++)
+                    {
+                        int j = 0;
+                        this._destroyer._positions[i, j] = row;
+                        j++;
+                        this._destroyer._positions[i, j] = column;
+                        column--;
+                    }
+                }
+                else if (orientation == "vertical" && direction == 1)
+                {
+                    for (int i = 0; i < this._destroyer._positions.GetLength(0); i++)
+                    {
+                        int j = 0;
+                        this._destroyer._positions[i, j] = row;
+                        j++;
+                        this._destroyer._positions[i, j] = column;
+                        row++;
+                    }
+                }
+                else if (orientation == "vertical" && direction == 2)
+                {
+                    for (int i = 0; i < this._destroyer._positions.GetLength(0); i++)
+                    {
+                        int j = 0;
+                        this._destroyer._positions[i, j] = row;
+                        j++;
+                        this._destroyer._positions[i, j] = column;
+                        row--;
+                    }
+                }
+            }
+            else if (ship._name == "Submarine")
+            {
+                if (orientation == "horizontal" && direction == 1)
+                {
+                    for (int i = 0; i < this._submarine._positions.GetLength(0); i++)
+                    {
+                        int j = 0;
+                        this._submarine._positions[i, j] = row;
+                        j++;
+                        this._submarine._positions[i, j] = column;
+                        column++;
+                    }
+
+                }
+                else if (orientation == "horizontal" && direction == 2)
+                {
+                    for (int i = 0; i < this._submarine._positions.GetLength(0); i++)
+                    {
+                        int j = 0;
+                        this._submarine._positions[i, j] = row;
+                        j++;
+                        this._submarine._positions[i, j] = column;
+                        column--;
+                    }
+                }
+                else if (orientation == "vertical" && direction == 1)
+                {
+                    for (int i = 0; i < this._submarine._positions.GetLength(0); i++)
+                    {
+                        int j = 0;
+                        this._submarine._positions[i, j] = row;
+                        j++;
+                        this._submarine._positions[i, j] = column;
+                        row++;
+                    }
+                }
+                else if (orientation == "vertical" && direction == 2)
+                {
+                    for (int i = 0; i < this._submarine._positions.GetLength(0); i++)
+                    {
+                        int j = 0;
+                        this._submarine._positions[i, j] = row;
+                        j++;
+                        this._submarine._positions[i, j] = column;
+                        row--;
+                    }
+                }
+            }
+        }
+
     }
 }
