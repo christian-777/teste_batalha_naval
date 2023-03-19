@@ -29,9 +29,9 @@ namespace teste_batalha_naval
             this._life--;
         }
 
-        public int Shot(int row, int col)
+        public int shoot(int row, int col)
         {
-            return this._board.VerifyShot(row, col);
+            return this._board.Verifyshoot(row, col);
 
             /*for(int i = 0; i < this._submarine._positions.GetLength(0); i++)
             {

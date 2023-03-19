@@ -15,6 +15,28 @@ namespace teste_batalha_naval
 
         public int[,] _board { get; set; } = new int[20, 20];
 
+        public void PrintBoard()
+        {
+            for (int l = 0; l < _board.GetLength(0); l++)
+            {
+                for (int c = 0; c < _board.GetLength(1); c++)
+                {
+                    if (this._board[l, c] == 0 || this._board[l, c] == 3)
+                    {
+                        Console.Write(" ~");
+                    }
+                    else if (this._board[l, c] == 1)
+                    {
+                        Console.Write(" O");
+                    }
+                    else
+                    {
+                        Console.Write(" X");
+                    }
+                }
+                Console.WriteLine();
+            }
+        }
         public int VerifyPosition(int row, int column, Ship ship, string orientation)
         {
             if (orientation == "horizontal")
@@ -402,7 +424,7 @@ namespace teste_batalha_naval
             return 0;
         }
 
-        public int VerifyShot(int row, int col)
+        public int Verifyshoot(int row, int col)
         {
             if (this._board[row, col] == 0)
             {
